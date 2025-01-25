@@ -1,0 +1,30 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   list-style: none;
+   text-decoration: none;
+   font-family: Inter, serif;
+}
+
+button,
+input {
+   border: none;
+   outline: none;
+}
+
+button,
+input[type="checkbox"] {
+   cursor: pointer;
+}
+
+*>img,
+*>video {
+   width: 100%;
+   height: 100%;
+   object-fit: fill;
+}
+body{
+   background: var(--body);
+   color: var(--pure);
+}

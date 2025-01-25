@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+
+<body>
+   <main class="app-main">
+      <section class="app-main-section">
+         <div class="app-main-content">
+            <!-- do -->
+            <div class="app-do">
+               <!-- form -->
+               <div class="app-do-form">
+                  <form action="/apps" method="post" class="app-do-form-content" id="form">
+                     <div class="app-form-container">
+                        <div class="app-form-input">
+                           <input type="text" name="app" id="app" placeholder="Add new task"
+                              class="app-form-input-content" required>
+                        </div>
+                        <div class="app-form-btn">
+                           <button type="submit" class="fa-solid fa-plus btn"></button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+               <!-- list -->
+               <div class="app-do-list">
+                  <h4 class="app-do-list-title">My To Do List</h4>
+                  <ul class="app-do-list-content">
+                     <% data && data.map((item) => { %>
+                        <% if(item.is_active == false){ %>
+                           <li class="app-do-list-option" data-id="<%= item.id %>">
+                              <span class="app-do-list-head"><%= item.app %></span>
+                              <ul class="app-do-list-action">
+                                 <li class="list-btn">
+                                    <a href="/access/<%= item.id %>" class="fa-solid fa-check"></a>
+                                 </li>
+                                 <li class="list-btn">
+                                    <a href="/delete/<%= item.id %>" class="fa-solid fa-trash-can"></a>
+                                 </li>
+                              </ul>
+                           </li>
+                       <% } %>
+                    <% }) %>
+                  </ul>
+               </div>
+            </div>
+            <!-- done -->
+            <div class="app-do-list">
+               <h4 class="app-do-list-title">Done - 1 </h4>
+               <ul class="app-do-list-content">
+                     <% data && data.map((item) => { %>
+                        <% if(item.is_active == true){ %>
+                           <li class="app-do-list-option success" data-id="<%= item.id %>">
+                              <span class="app-do-list-head"><%= item.app %></span>
+                           </li>
+                       <% } %>
+                    <% }) %>
+                  </ul>
+            </div>
+         </div>
+      </section>
+   </main>
+
+   <script src="/typescript/index.js"></script>
+</body>
+
+</html>
