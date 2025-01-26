@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"npx tsc --watch\" \"nodemon\"",
-    "switch": "npx tsc --watch ./dist/src/public/typescript/index.ts"
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon dist/index.js\""
   },
   "keywords": [],
   "author": "",
