@@ -6,8 +6,8 @@
   "scripts": {
     "build": "nodemon dist/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node dist/src/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon dist/src/index.js\""
+    "start": "concurrently \"npx tsc --watch\" \"nodemon dist/src/index.js\"",
+    "dev": "tsc && node dist/src/index.js"
   },
   "keywords": [],
   "author": "",
